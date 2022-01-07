@@ -10,7 +10,7 @@ namespace Cinematic.BL.Interfaces
 {
      public interface IUserService
     {
-        User GetUserByID(int id);
+      
 
         User GetUserByUsername(string name);
 

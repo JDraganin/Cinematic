@@ -1,4 +1,6 @@
 ﻿using BarManager.Extensions;
+using Cinematic.BL.Interfaces;
+using Cinematic.BL.Services;
 using Cinematic.DL.Interfaces;
 using Cinematic.DL.Mongo;
 using Cinematic.DL.Repo;
@@ -32,9 +34,12 @@ namespace Cinematic
 
             services.Configure<MongoDbConfiguration>(Configuration.GetSection(nameof(MongoDbConfiguration)));
 
-            services.AddSingleton<IMovieRepository, MovieMongoRepository>();
-            services.AddSingleton<IUserRepository, UserMongoRepository>();
-            services.AddSingleton<ISeriesRepository, SeriesMongoRepository>();
+            services.AddSingleton<IMovieRepository, MovieInMemoryRepository>();
+            services.AddSingleton<IUserRepository, UserInMemoryRepository>();
+            services.AddSingleton<ISeriesRepository, SeriesInMemoryRepository>();
+            services.AddSingleton<IMovieService, MovieService>();
+            services.AddSingleton<IUserService, UserService>();
+            services.AddSingleton<ISeriesService, SeriesService>();
 
 
             services.AddControllers().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Startup>());

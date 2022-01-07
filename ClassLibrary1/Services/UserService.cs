@@ -52,12 +52,7 @@ namespace Cinematic.BL.Services
             return _userRepository.GetAll();
         }
 
-        public User GetUserByID(int id)
-        {
-            var result = _userRepository.GetAll().FirstOrDefault(x => x.Id == id);
-
-            return result;
-        }
+     
 
         public User GetUserByUsername(string name)
         {
@@ -96,7 +91,8 @@ namespace Cinematic.BL.Services
             {
                 if (user.Amount >= movieToBuy.Price)
                 {
-                    return string.Format("User {0} buy {1}", user, movieToBuy);
+                    user.Amount -= movieToBuy.Price;
+                    return string.Format("User {0} buy {1}", user.Username, movieToBuy.Name);
                 }
                 else
                 {
@@ -109,7 +105,7 @@ namespace Cinematic.BL.Services
             {
                 if (user.Amount >= serieToBuy.Price)
                 {
-                    return string.Format("User {0} buy {1}", user, serieToBuy);
+                    return string.Format("User {0} buy {1}", user.Username, serieToBuy.Name);
                 }
                 else
                 {

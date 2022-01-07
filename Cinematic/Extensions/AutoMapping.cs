@@ -15,7 +15,7 @@ namespace BarManager.Extensions
 
             CreateMap<User, UserResponse>().ReverseMap();
             CreateMap<UserResponse, User>().ReverseMap();
-            CreateMap<UserResponse, User>().ReverseMap();
+            CreateMap<UserRequest, User>().ReverseMap();
 
             CreateMap<Series, SeriesResponse>().ReverseMap();
             CreateMap<SeriesResponse, Series>().ReverseMap();

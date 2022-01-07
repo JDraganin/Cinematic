@@ -9,21 +9,21 @@ namespace Cinematic.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class MovieController : ControllerBase
+    public class SeriesController : ControllerBase
     {
-        private readonly IMovieService _movieService;
+        private readonly ISeriesService _seriesService;
         private readonly IMapper _mapper;
 
-        public MovieController(IMovieService movieService, IMapper mapper)
+        public SeriesController(ISeriesService sereisService, IMapper mapper)
         {
-            _movieService = movieService;
+            _seriesService = sereisService;
             _mapper = mapper;
         }
 
         [HttpGet("GetAll")]
         public IActionResult GetAll()
         {
-            var result = _movieService.GetAll();
+            var result = _seriesService.GetAll();
 
             return Ok(result);
         }
@@ -33,22 +33,22 @@ namespace Cinematic.Controllers
         {
             if (id <= 0) return BadRequest();
 
-            var result = _movieService.GetById(id);
+            var result = _seriesService.GetById(id);
 
             if (result == null) return NotFound(id);
-            var response = _mapper.Map<MovieResponse>(result);
+            var response = _mapper.Map<SeriesResponse>(result);
 
             return Ok(response);
         }
 
         [HttpPost("Create")]
-        public IActionResult Create([FromBody] MovieRequest movieRequest)
+        public IActionResult Create([FromBody] SeriesRequest serieRequest)
         {
-            if (movieRequest == null) return BadRequest();
+            if (serieRequest == null) return BadRequest();
 
-            var movie = _mapper.Map<Movie>(movieRequest);
+            var serie = _mapper.Map<Series>(serieRequest);
 
-            var result = _movieService.Create(movie);
+            var result = _seriesService.Create(serie);
 
             return Ok(result);
         }
@@ -57,33 +57,32 @@ namespace Cinematic.Controllers
         public IActionResult Delete(int id)
         {
             if (id <= 0) return BadRequest(id);
+            var SerieToRemove = _seriesService.GetById(id);
 
-            var movieToRemove = _movieService.GetById(id);
-
-            var result = _movieService.Delete(id);
+            var result = _seriesService.Delete(id);
 
             if (result == null) return NotFound(id);
 
-            return Ok(movieToRemove);
+            return Ok(SerieToRemove);
         }
 
         [HttpPost("Update")]
-        public IActionResult Update([FromBody] Movie movie)
+        public IActionResult Update([FromBody] Series serie)
         {
-            if (movie == null) return BadRequest();
+            if (serie == null) return BadRequest();
 
-            var searchBill = _movieService.GetById(movie.id);
+            var searchBill = _seriesService.GetById(serie.id);
 
-            if (searchBill == null) return NotFound(movie.id);
+            if (searchBill == null) return NotFound(serie.id);
 
-            var result = _movieService.Update(movie);
+            var result = _seriesService.Update(serie);
 
             return Ok(result);
         }
         [HttpGet("GetByPrice")]
         public IActionResult GetByPrice(double price)
         {
-            var result = _movieService.GetByPrice(price);
+            var result = _seriesService.GetByPrice(price);
             if (result == null)
             {
                 return NotFound(price);
@@ -96,7 +95,7 @@ namespace Cinematic.Controllers
         {
             if (name.Length <= 3) return BadRequest();
 
-            var result = _movieService.GetByName(name);
+            var result = _seriesService.GetByName(name);
 
             if (result == null) return NotFound(name);
             var response = _mapper.Map<MovieResponse>(result);
@@ -112,7 +111,7 @@ namespace Cinematic.Controllers
         {
             if (genre.Length <= 2) return BadRequest();
 
-            var result = _movieService.GetByGenre(genre);
+            var result = _seriesService.GetByGenre(genre);
 
             if (result == null) return NotFound(genre);
 
@@ -125,4 +124,3 @@ namespace Cinematic.Controllers
 
     }
 }
-
