@@ -1,7 +1,7 @@
 ﻿using Cinematic.BL.Interfaces;
 using Cinematic.DL.Interfaces;
 using Cinematic.Models.DTO;
-using Microsoft.Extensions.Logging;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +38,7 @@ namespace Cinematic.BL.Services
             }
             catch (Exception e)
             {
-                _logger.LogError(e.Message);
+                _logger.Error(e.Message);
             }
             return _serieRepository.GetAll().FirstOrDefault(x => x.Name == name);
 
@@ -64,7 +64,7 @@ namespace Cinematic.BL.Services
             }
             catch (Exception e)
             {
-                _logger.LogError(e.StackTrace);
+                _logger.Error(e.Message);
             }
 
             return _serieRepository.Create(serie);
@@ -92,9 +92,9 @@ namespace Cinematic.BL.Services
                 return _serieRepository.GetAll();
             }
             catch (Exception e)
-            {
+            { 
 
-                _logger.LogError(e.Message);
+                _logger.Error(e.Message);   
             }
             return _serieRepository.GetAll();
         }
