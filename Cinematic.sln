@@ -3,25 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinematic", "Cinematic\Cinematic.csproj", "{DD5C4782-EE52-44B2-B4CC-5F376F77AD82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinematic", "Cinematic\Cinematic.csproj", "{DD5C4782-EE52-44B2-B4CC-5F376F77AD82}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B5FD70B-C9B9-4250-BD06-91BDC54EA129} = {9B5FD70B-C9B9-4250-BD06-91BDC54EA129}
 		{6A0DFA0E-EDF4-411E-BD42-0E9D1269E8B2} = {6A0DFA0E-EDF4-411E-BD42-0E9D1269E8B2}
 		{4E0179B5-9FB6-442C-B7A7-2E9C054B1960} = {4E0179B5-9FB6-442C-B7A7-2E9C054B1960}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinematic.BL", "ClassLibrary1\Cinematic.BL.csproj", "{4E0179B5-9FB6-442C-B7A7-2E9C054B1960}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinematic.BL", "ClassLibrary1\Cinematic.BL.csproj", "{4E0179B5-9FB6-442C-B7A7-2E9C054B1960}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B5FD70B-C9B9-4250-BD06-91BDC54EA129} = {9B5FD70B-C9B9-4250-BD06-91BDC54EA129}
 		{6A0DFA0E-EDF4-411E-BD42-0E9D1269E8B2} = {6A0DFA0E-EDF4-411E-BD42-0E9D1269E8B2}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinematic.DL", "Cinematic.DL\Cinematic.DL.csproj", "{6A0DFA0E-EDF4-411E-BD42-0E9D1269E8B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinematic.DL", "Cinematic.DL\Cinematic.DL.csproj", "{6A0DFA0E-EDF4-411E-BD42-0E9D1269E8B2}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9B5FD70B-C9B9-4250-BD06-91BDC54EA129} = {9B5FD70B-C9B9-4250-BD06-91BDC54EA129}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinematic.Models", "Cinematic.Models\Cinematic.Models.csproj", "{9B5FD70B-C9B9-4250-BD06-91BDC54EA129}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cinematic.Models", "Cinematic.Models\Cinematic.Models.csproj", "{9B5FD70B-C9B9-4250-BD06-91BDC54EA129}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{D733B9AF-4447-4DCE-951E-F509EFB3C958}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{9B5FD70B-C9B9-4250-BD06-91BDC54EA129}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B5FD70B-C9B9-4250-BD06-91BDC54EA129}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B5FD70B-C9B9-4250-BD06-91BDC54EA129}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D733B9AF-4447-4DCE-951E-F509EFB3C958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D733B9AF-4447-4DCE-951E-F509EFB3C958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D733B9AF-4447-4DCE-951E-F509EFB3C958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D733B9AF-4447-4DCE-951E-F509EFB3C958}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
